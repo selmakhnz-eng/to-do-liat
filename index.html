@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="todo-card" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <div class="cat-badge" aria-hidden="true">
+          <span class="cat-icon">🐱</span>
+        </div>
+        <p class="eyebrow">Daily focus</p>
+        <h1 id="page-title">To Do List</h1>
+        <p class="subtitle">Capture tasks quickly, mark them done, and keep the list moving.</p>
+      </div>
+
+      <div class="composer">
+        <label class="sr-only" for="taskInput">New task</label>
+        <input id="taskInput" type="text" placeholder="Add a new task" autocomplete="off" />
+        <button id="addTaskBtn" type="button">Add task</button>
+      </div>
+
+      <ul id="taskList" class="task-list" aria-live="polite"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+:root {
+  color-scheme: light;
+  --bg: #fff0f7;
+  --panel: rgba(255, 255, 255, 0.9);
+  --panel-border: rgba(160, 45, 104, 0.14);
+  --text: #41122e;
+  --muted: #8a5b74;
+  --accent: #f25ca2;
+  --accent-deep: #b51b68;
+  --danger: #d61f69;
+  --shadow: 0 24px 60px rgba(163, 57, 110, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Trebuchet MS", "Gill Sans", "Avenir Next", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(242, 92, 162, 0.2), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(249, 168, 212, 0.22), transparent 28%),
+    linear-gradient(135deg, #fff7fc 0%, var(--bg) 100%);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.todo-card {
+  width: min(100%, 680px);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+  padding: 32px;
+}
+
+.hero-copy {
+  margin-bottom: 24px;
+}
+
+.cat-badge {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(242, 92, 162, 0.18), rgba(249, 168, 212, 0.34));
+  border: 1px solid rgba(242, 92, 162, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.cat-icon {
+  font-size: 2rem;
+  line-height: 1;
+  filter: drop-shadow(0 6px 14px rgba(181, 27, 104, 0.18));
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: var(--accent-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  line-height: 0.98;
+}
+
+.subtitle {
+  margin: 14px 0 0;
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+input {
+  border: 1px solid rgba(160, 45, 104, 0.16);
+  border-radius: 16px;
+  padding: 0 16px;
+  min-height: 52px;
+  font: inherit;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.96);
+  outline: none;
+}
+
+input::placeholder {
+  color: #a06a8a;
+}
+
+input:focus {
+  border-color: rgba(242, 92, 162, 0.72);
+  box-shadow: 0 0 0 4px rgba(242, 92, 162, 0.14);
+}
+
+button {
+  border: 0;
+  border-radius: 16px;
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+#addTaskBtn {
+  min-height: 52px;
+  padding: 0 18px;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), #ff86be);
+  box-shadow: 0 14px 26px rgba(242, 92, 162, 0.24);
+}
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(160, 45, 104, 0.1);
+  border-radius: 18px;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.icon-button {
+  min-height: 38px;
+  padding: 0 14px;
+  color: var(--text);
+  background: #ffe1ef;
+}
+
+.icon-button.danger {
+  color: white;
+  background: var(--danger);
+}
+
+.task-item.completed .task-text {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.task-item.completed {
+  opacity: 0.75;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .todo-card {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .composer {
+    grid-template-columns: 1fr;
+  }
+
+  .task-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-actions {
+    width: 100%;
+  }
+
+  .icon-button,
+  #addTaskBtn {
+    width: 100%;
+  }
+}
